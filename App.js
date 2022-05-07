@@ -1,20 +1,72 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql,
+} from "@apollo/client";
+import { ProductCard } from "./components/ProductCard";
 
-export default function App() {
+const client = new ApolloClient({
+  uri: "https://charmed-squirrel-78.hasura.app/v1/graphql",
+  cache: new InMemoryCache(),
+  headers: {
+    "x-hasura-admin-secret": "adminsecret",
+  },
+});
+
+const PRODUCTS = gql`
+  query GetStoreProducts {
+    product {
+      id
+      name
+    }
+  }
+`;
+
+const Stack = createNativeStackNavigator();
+
+function StoreScreen({ navigation }) {
+  const { loading, error, data } = useQuery(PRODUCTS);
+  if (loading) return <p>Loading</p>;
+  if (error) return <p>Error</p>;
+
+  const products = data ? data.product : [];
+
+  console.log("products", products);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ alignItems: "center", justifyContent: "center" }}>
+      <Text>Commuter Essentials Store</Text>
+      <Button
+        title="Go to Checkout"
+        onPress={() => navigation.navigate("Checkout")}
+      />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function CheckoutScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>Checkout Screen</Text>
+      <Button title="Go Back" onPress={() => navigation.navigate("Store")} />
+    </View>
+  );
+}
+
+export default function App() {
+  return (
+    <ApolloProvider client={client}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Store" component={StoreScreen} />
+          <Stack.Screen name="Checkout" component={CheckoutScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ApolloProvider>
+  );
+}

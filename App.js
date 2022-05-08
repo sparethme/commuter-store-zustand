@@ -23,6 +23,8 @@ const PRODUCTS = gql`
     product {
       id
       name
+      price
+      image
     }
   }
 `;
@@ -41,6 +43,9 @@ function StoreScreen({ navigation }) {
   return (
     <View style={{ alignItems: "center", justifyContent: "center" }}>
       <Text>Commuter Essentials Store</Text>
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
       <Button
         title="Go to Checkout"
         onPress={() => navigation.navigate("Checkout")}

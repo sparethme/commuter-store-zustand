@@ -1,5 +1,6 @@
 import { View, Text, Button } from "react-native";
 import { useCartStore } from "./Cart";
+import { useNavigation } from "@react-navigation/native";
 
 function CartSummary(props) {
   const { quantity, addProduct, cart } = useCartStore((state) => ({
@@ -13,6 +14,8 @@ function CartSummary(props) {
   });
 
   console.log("array", cartArray);
+
+  const navigation = useNavigation();
   return (
     <View>
       {cartArray.map((cartProduct) => (

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { ScrollView, Text, View, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
@@ -53,19 +53,21 @@ function StoreScreen({ navigation }) {
     >
       <Text>Commuter Essentials Store</Text>
       <View style={{ flexDirection: "row" }}>
-        <View
+        <ScrollView
           style={{
             flex: 3,
-            alignItems: "center",
-            justifyContent: "center",
             borderColor: "red",
             borderWidth: 1,
+          }}
+          contentContainerStyle={{
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        </View>
+        </ScrollView>
         <View
           style={{
             flex: 1,

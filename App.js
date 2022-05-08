@@ -9,8 +9,10 @@ import {
   gql,
 } from "@apollo/client";
 import { ProductCard } from "./components/ProductCard";
+import CartSummary from "./components/CartSummary";
 
 const client = new ApolloClient({
+  // ideally env variables here but for sake of testing
   uri: "https://charmed-squirrel-78.hasura.app/v1/graphql",
   cache: new InMemoryCache(),
   headers: {
@@ -41,15 +43,41 @@ function StoreScreen({ navigation }) {
   console.log("products", products);
 
   return (
-    <View style={{ alignItems: "center", justifyContent: "center" }}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        borderColor: "green",
+        borderWidth: 1,
+      }}
+    >
       <Text>Commuter Essentials Store</Text>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-      <Button
-        title="Go to Checkout"
-        onPress={() => navigation.navigate("Checkout")}
-      />
+      <View style={{ flexDirection: "row" }}>
+        <View
+          style={{
+            flex: 3,
+            alignItems: "center",
+            justifyContent: "center",
+            borderColor: "red",
+            borderWidth: 1,
+          }}
+        >
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </View>
+        <View
+          style={{
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center",
+            borderColor: "blue",
+            borderWidth: 1,
+          }}
+        >
+          <CartSummary />
+        </View>
+      </View>
     </View>
   );
 }

@@ -1,22 +1,22 @@
 {
   "files": {
-    "app.js": "/commuter-store-zustand/static/js/app.30554c6c.chunk.js",
-    "app.js.map": "/commuter-store-zustand/static/js/app.30554c6c.chunk.js.map",
+    "app.js": "/commuter-store-zustand/static/js/app.543f617a.chunk.js",
+    "app.js.map": "/commuter-store-zustand/static/js/app.543f617a.chunk.js.map",
     "runtime~app.js": "/commuter-store-zustand/static/js/runtime~app.6541f2bf.js",
     "runtime~app.js.map": "/commuter-store-zustand/static/js/runtime~app.6541f2bf.js.map",
-    "static/js/2.55e53b9f.chunk.js": "/commuter-store-zustand/static/js/2.55e53b9f.chunk.js",
-    "static/js/2.55e53b9f.chunk.js.map": "/commuter-store-zustand/static/js/2.55e53b9f.chunk.js.map",
+    "static/js/2.0345fb3d.chunk.js": "/commuter-store-zustand/static/js/2.0345fb3d.chunk.js",
+    "static/js/2.0345fb3d.chunk.js.map": "/commuter-store-zustand/static/js/2.0345fb3d.chunk.js.map",
     "favicon-16.png": "/commuter-store-zustand/favicon-16.png",
     "favicon-32.png": "/commuter-store-zustand/favicon-32.png",
     "favicon.ico": "/commuter-store-zustand/favicon.ico",
     "index.html": "/commuter-store-zustand/index.html",
     "manifest.json": "/commuter-store-zustand/manifest.json",
     "serve.json": "/commuter-store-zustand/serve.json",
-    "static/js/2.55e53b9f.chunk.js.LICENSE.txt": "/commuter-store-zustand/static/js/2.55e53b9f.chunk.js.LICENSE.txt"
+    "static/js/2.0345fb3d.chunk.js.LICENSE.txt": "/commuter-store-zustand/static/js/2.0345fb3d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime~app.6541f2bf.js",
-    "static/js/2.55e53b9f.chunk.js",
-    "static/js/app.30554c6c.chunk.js"
+    "static/js/2.0345fb3d.chunk.js",
+    "static/js/app.543f617a.chunk.js"
   ]
 }

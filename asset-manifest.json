@@ -1,7 +1,7 @@
 {
   "files": {
-    "app.js": "/commuter-store-zustand/static/js/app.543f617a.chunk.js",
-    "app.js.map": "/commuter-store-zustand/static/js/app.543f617a.chunk.js.map",
+    "app.js": "/commuter-store-zustand/static/js/app.c745599b.chunk.js",
+    "app.js.map": "/commuter-store-zustand/static/js/app.c745599b.chunk.js.map",
     "runtime~app.js": "/commuter-store-zustand/static/js/runtime~app.6541f2bf.js",
     "runtime~app.js.map": "/commuter-store-zustand/static/js/runtime~app.6541f2bf.js.map",
     "static/js/2.0345fb3d.chunk.js": "/commuter-store-zustand/static/js/2.0345fb3d.chunk.js",
@@ -17,6 +17,6 @@
   "entrypoints": [
     "static/js/runtime~app.6541f2bf.js",
     "static/js/2.0345fb3d.chunk.js",
-    "static/js/app.543f617a.chunk.js"
+    "static/js/app.c745599b.chunk.js"
   ]
 }

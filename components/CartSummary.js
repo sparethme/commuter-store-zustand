@@ -3,11 +3,14 @@ import { useCartStore } from "./Cart";
 import { useNavigation } from "@react-navigation/native";
 
 function CartSummary(props) {
-  const { quantity, addProduct, cart } = useCartStore((state) => ({
-    cart: state.cart,
-    // quantity: state.cart[id]?.quantity || 0,
-    addProduct: state.addProduct,
-  }));
+  const { quantity, addProduct, cart, removeProduct } = useCartStore(
+    (state) => ({
+      cart: state.cart,
+      // quantity: state.cart[id]?.quantity || 0,
+      addProduct: state.addProduct,
+      removeProduct: state.removeProduct,
+    })
+  );
 
   const cartArray = Object.keys(cart).map((key) => {
     return cart[key];
@@ -30,7 +33,7 @@ function CartSummary(props) {
           <Text>{cartProduct.name}</Text>
           <Button
             onPress={() => {
-              console.log("todo: decrease product quantity");
+              removeProduct({ id: cartProduct.id });
             }}
             title="-"
           />

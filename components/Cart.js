@@ -19,6 +19,23 @@ export const useCartStore = create((set) => ({
       return { cart };
     });
   },
-  removeProduct: () => {},
+  removeProduct: ({ id }) => {
+    set((state) => {
+      const cart = { ...state.cart };
+
+      if (!cart[id]) {
+        return { cart };
+      }
+
+      const updatedQuantity = cart[id].quantity - 1;
+      if (updatedQuantity <= 0) {
+        delete cart[id];
+      } else {
+        cart[id].quantity = updatedQuantity;
+      }
+
+      return { cart };
+    });
+  },
   deleteProduct: () => {},
 }));
